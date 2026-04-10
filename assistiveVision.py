@@ -30,7 +30,7 @@ class AssistiveVision:
 
 
         #Map out the detected corners to their IDs
-        marker_dict = {int(marker_id): corner[0] for marker_id, corner in zip(ids, corners)}
+        marker_dict = {int(marker_id[0]): corner[0] for marker_id, corner in zip(ids, corners)}
 
         try: 
             #Extract the top left corner from each marker
@@ -71,7 +71,8 @@ class AssistiveVision:
 
 if __name__ == "__main__":
 
-    vision_system = AssistiveVision(workspace_width_mm=354.0, workspace_height_mm=262.0)
+    #Known workspace dimentions in mm
+    vision_system = AssistiveVision(workspace_width_mm = 418.0, workspace_height_mm = 265.0)
 
     test_image = cv2.imread("test_workspace.jpg")
     if test_image is not None:
