@@ -34,10 +34,10 @@ class AssistiveVision:
 
         try: 
             #Extract the top left corner from each marker
-            pixel_TL = marker_dict[0][0]
-            pixel_TR = marker_dict[1][0]
+            pixel_TL = marker_dict[0][3]
+            pixel_TR = marker_dict[1][2]
             pixel_BR = marker_dict[2][0]
-            pixel_BL = marker_dict[3][0]
+            pixel_BL = marker_dict[3][1]
 
             pts_pixels = np.array([pixel_TL, pixel_TR, pixel_BR, pixel_BL], dtype="float32")
 
@@ -71,8 +71,8 @@ class AssistiveVision:
 
 if __name__ == "__main__":
 
-    #Known workspace dimentions in mm
-    vision_system = AssistiveVision(workspace_width_mm = 418.0, workspace_height_mm = 265.0)
+    #Known workspace dimensions in mm
+    vision_system = AssistiveVision(workspace_width_mm = 378.0, workspace_height_mm = 225.0)
 
     test_image = cv2.imread("test_workspace.jpg")
     if test_image is not None:
