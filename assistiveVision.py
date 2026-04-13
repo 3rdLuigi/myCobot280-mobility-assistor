@@ -112,7 +112,7 @@ if __name__ == "__main__":
     #Known workspace dimensions in mm
     vision_system = AssistiveVision(workspace_width_mm = 378.0, workspace_height_mm = 225.0)
 
-    test_image = cv2.imread("lego_test_ws.jpg")
+    test_image = cv2.imread("images/lego_test_ws.jpg")
     if test_image is not None:
         is_calibrated = vision_system.calibrate_workspace(test_image)
 
