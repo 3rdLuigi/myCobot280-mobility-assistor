@@ -15,6 +15,7 @@ install(DIRECTORY
   launch
   urdf
   rviz
+  worlds
   DESTINATION share/${PROJECT_NAME}
 )
 
