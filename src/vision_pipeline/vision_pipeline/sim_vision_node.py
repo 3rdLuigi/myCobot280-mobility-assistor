@@ -51,7 +51,21 @@ class SimVisionNode(Node):
                         cy = int(M["m01"] / M["m00"])
                         cv2.circle(frame, (cx, cy), 5, (0, 255, 0), -1)
 
-                        self.get_logger().info(f"Target found at X: {cx}, Y: {cy}")
+                        # Translate the pixel coordinates to simulation world coordinates
+                        # Camera properties
+                        meters_per_pixel = 0.0009
+                        cam_center_x_pixel = 320
+                        cam_center_y_pixel = 240
+                        # Known coords of the exact center of the camera
+                        world_center_x = 0.25
+                        world_center_y = 0.00
+
+                        # Calculate offset from center (in gazebo camera moving up in pixels is +x in world and right is -y in world)
+                        world_x = world_center_x + ((cam_center_y_pixel - cy) * meters_per_pixel)
+                        world_y = world_center_y + ((cam_center_x_pixel - cx) * meters_per_pixel)
+                        
+                        self.get_logger().info(f"Target found at World Coordinates - X: {world_x}, Y: {world_y}")
+
             cv2.imshow("Simulated Vision Camera", frame)
             cv2.waitKey(1)
 
