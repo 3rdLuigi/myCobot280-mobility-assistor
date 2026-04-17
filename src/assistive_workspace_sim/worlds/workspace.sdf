@@ -49,5 +49,52 @@
         </visual>
       </link>
     </model>
+    <model name="blue_sorting_bin">
+      <pose>0.15 0.25 0.8 0 0 0</pose>
+      <static>true</static> <link name="bin_base">
+        <pose>0 0 0.005 0 0 0</pose>
+        <collision name="collision"><geometry><box><size>0.10 0.10 0.01</size></box></geometry></collision>
+        <visual name="visual">
+          <geometry><box><size>0.10 0.10 0.01</size></box></geometry>
+          <material><ambient>0.0 0.3 0.8 1.0</ambient><diffuse>0.0 0.3 0.8 1.0</diffuse></material>
+        </visual>
+      </link>
+
+      <link name="wall_front">
+        <pose>0.045 0 0.03 0 0 0</pose>
+        <collision name="collision"><geometry><box><size>0.01 0.10 0.06</size></box></geometry></collision>
+        <visual name="visual">
+          <geometry><box><size>0.01 0.10 0.06</size></box></geometry>
+          <material><ambient>0.0 0.3 0.8 1.0</ambient><diffuse>0.0 0.3 0.8 1.0</diffuse></material>
+        </visual>
+      </link>
+
+      <link name="wall_back">
+        <pose>-0.045 0 0.03 0 0 0</pose>
+        <collision name="collision"><geometry><box><size>0.01 0.10 0.06</size></box></geometry></collision>
+        <visual name="visual">
+          <geometry><box><size>0.01 0.10 0.06</size></box></geometry>
+          <material><ambient>0.0 0.3 0.8 1.0</ambient><diffuse>0.0 0.3 0.8 1.0</diffuse></material>
+        </visual>
+      </link>
+
+      <link name="wall_left">
+        <pose>0 0.045 0.03 0 0 0</pose>
+        <collision name="collision"><geometry><box><size>0.08 0.01 0.06</size></box></geometry></collision>
+        <visual name="visual">
+          <geometry><box><size>0.08 0.01 0.06</size></box></geometry>
+          <material><ambient>0.0 0.3 0.8 1.0</ambient><diffuse>0.0 0.3 0.8 1.0</diffuse></material>
+        </visual>
+      </link>
+
+      <link name="wall_right">
+        <pose>0 -0.045 0.03 0 0 0</pose>
+        <collision name="collision"><geometry><box><size>0.08 0.01 0.06</size></box></geometry></collision>
+        <visual name="visual">
+          <geometry><box><size>0.08 0.01 0.06</size></box></geometry>
+          <material><ambient>0.0 0.3 0.8 1.0</ambient><diffuse>0.0 0.3 0.8 1.0</diffuse></material>
+        </visual>
+      </link>
+    </model>
   </world>
 </sdf>

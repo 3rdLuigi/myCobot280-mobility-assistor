@@ -3,6 +3,8 @@
 
   <xacro:include filename="camera.xacro" />
 
+  <xacro:include filename="$(find mycobot_description)/urdf/mycobot_280_pi/mycobot_280_pi_adaptive_gripper.urdf" />
+
   <link name="world"/>
 
   <link name="table_link">
@@ -61,6 +63,12 @@
     <parent link="table_link"/>
     <child link="camera_link"/>
     <origin xyz="0.25 0 1.3" rpy="0 1.5708 0"/>
+  </joint>
+
+  <joint name="table_to_robot" type="fixed">
+    <parent link="table_link"/>
+    <child link="g_base"/>
+    <origin xyz="0 0 0.8" rpy="0 0 0"/>
   </joint>
 
   <gazebo reference="table_link">
